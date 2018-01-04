@@ -1,24 +1,33 @@
 {
-   "type":"object",
-   "$schema": "http://json-schema.org/draft-04/schema",
-   "id": "http://jsonschema.net",
-   "$ref": "http://localhost/plugins/content/component/model.schema",
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+      "ariaRegion": {
+        "type": "string",
+        "required": true,
+        "default": "This is the expanding blinds component which has multiple images lined up with descriptions that reveal on the image in focus. Tab to each image for it's description.",
+        "inputType": "Text",
+        "validators": [],
+        "translatable": true
+      }
+  },
    "properties":{
      "_supportedLayout": {
-       "type": "string",
-       "required": true,
-       "enum": ["full-width", "half-width", "both"],
-       "default": "half-width",
-       "editorOnly": true
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
      },
      "instruction": {
-       "type": "string",
-       "required": false,
-       "default": "",
-       "title": "Instruction",
-       "inputType": "Text",
-       "validators": [],
-       "help": "This is the instruction text"
+        "type": "string",
+        "required": false,
+        "default": "",
+        "inputType": "Text",
+        "validators": [],
+        "help": "This is the instruction text"
      },
      "_options": {
        "type":"object",
@@ -44,12 +53,21 @@
            "validators": [],
            "help": "A number followed by '%' or 'px', (e.g., '100%')"
          },
-         "showCurrentTime": {
-           "type":"boolean",
+         "margin": {
+           "type":"string",
            "required":false,
            "default": "",
+           "title": "Margin size",
+           "inputType": "Text",
+           "validators": [],
+           "help": "A number followed by '%' or 'px', (e.g., '100%')"
+         },
+         "showCurrentTime": {
+           "type": "boolean",
+           "required": false,
+           "default": false,
            "title": "Show Current Time",
-           "inputType": {"type": "Boolean", "options": [true, false]},
+           "inputType": "Checkbox",
            "validators": [],
            "help": "When set to 'true', a vertical line will be displayed indicating the current time"
          },
@@ -189,7 +207,7 @@
              "default": "",
              "title": "Tooltip Tex",
              "inputType": "Text",
-             "validators": ["text"],
+             "validators": [],
              "help": "Plain text that displays as a tool-tip when hovering over an item"
            }
          }
@@ -237,7 +255,7 @@
              "default": "",
              "title": "ClassName",
              "inputType": "Text",
-             "validators": ["text"],
+             "validators": [],
              "help": "A CSS class used to style this single item"
            },
            "style": {
@@ -264,7 +282,7 @@
              "default": "",
              "title": "Tooltip Text",
              "inputType": "Text",
-             "validators": ["text"],
+             "validators": [],
              "help": "Plain text that displays as a tool-tip when hovering over a group"
            },
            "autoResize": {
