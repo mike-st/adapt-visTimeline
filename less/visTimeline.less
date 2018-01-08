@@ -1,6 +1,7 @@
 .visTimeline-component {
     .visTimeline-widget {
         position: relative;
+        margin: 0px 48px;
 
         .visTimeline-controls {
             display: block;
@@ -25,11 +26,11 @@
         }
 
         .visTimeline-control-left {
-            left: 0;
+            left: -58px;
         }
 
         .visTimeline-control-right {
-            right: 0;
+            right: -58px;
         }
     }
 
@@ -634,4 +635,12 @@
 .vis.timeline .iconFill {
     fill-opacity:0.3;
     stroke: none;
+}
+
+@media all and (max-width:@device-width-medium){
+    .visTimeline-inner {padding-bottom: 70px !important;}
+    .visTimeline-component .visTimeline-widget {margin: 0px 0px;}
+    .visTimeline-component .visTimeline-widget .visTimeline-controls {top: inherit; bottom: -60px;}
+    .visTimeline-component .visTimeline-widget .visTimeline-control-left {left: 0px;}
+    .visTimeline-component .visTimeline-widget .visTimeline-control-right {right: 0px;}
 }
