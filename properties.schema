@@ -38,7 +38,7 @@
          "width": {
            "type":"string",
            "required":false,
-           "default": "",
+           "default": "100%",
            "title": "Timeline Window Width",
            "inputType": "Text",
            "validators": [],
@@ -47,7 +47,7 @@
          "height": {
            "type":"string",
            "required":false,
-           "default": "",
+           "default": "600px",
            "title": "Timeline Window Height",
            "inputType": "Text",
            "validators": [],
@@ -56,7 +56,7 @@
          "margin": {
            "type":"string",
            "required":false,
-           "default": "",
+           "default": "0px",
            "title": "Margin size",
            "inputType": "Text",
            "validators": [],
@@ -76,7 +76,7 @@
            "required":false,
            "default": "",
            "title": "Default Template",
-           "inputType": "Asset:other",
+           "inputType": "Hidden",
            "validators": [],
            "help": "The name of the template (excluding the file extension) that will be applied to all items"
          },
@@ -134,8 +134,9 @@
              "required":true,
              "title": "Start",
              "inputType": "Text",
+             "default": "",
              "validators": ["required"],
-             "help": "Requires a date/time format compatible with vis.js"
+             "help": "Requires a date/time (e.g. date='2015-01-24' or time='2014-06-28 17:00')"
            },
            "end": {
              "type":"string",
@@ -144,7 +145,7 @@
              "default": "",
              "title": "End",
              "validators": [],
-             "help": "Requires a date/time format compatible with vis.js"
+             "help": "Requires a date/time (e.g. date='2015-01-24' or time='2014-06-28 17:00')"
            },
            "type": {
              "type":"string",
@@ -161,7 +162,7 @@
              "required":false,
              "default": "",
              "title": "Template",
-             "inputType": "Asset:other",
+             "inputType": "Hidden",
              "validators": [],
              "help": "The name of the template (excluding the file extension) that will be applied to this single item"
            },
