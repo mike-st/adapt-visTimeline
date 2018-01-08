@@ -7,7 +7,7 @@
       "ariaRegion": {
         "type": "string",
         "required": true,
-        "default": "This is the expanding blinds component which has multiple images lined up with descriptions that reveal on the image in focus. Tab to each image for it's description.",
+        "default": "This is the timeline component that displays items positioned chronologically along a marked axis. Tab to each item in the timeline. The timeline also uses left and right arrows to move through the items in the timeline.",
         "inputType": "Text",
         "validators": [],
         "translatable": true
