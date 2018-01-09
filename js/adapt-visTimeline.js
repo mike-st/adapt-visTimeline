@@ -44,7 +44,9 @@ define(function(require) {
 
         buildTimeline: function() {
             //build container, options, data, groups
-            var container = document.getElementById('visualization'); // code fails if jQuery is used here
+            var timelineId = this.model.get('_id'); //pin points what block to put timeline
+
+            var container = document.getElementById('time'+ timelineId); // code fails if jQuery is used here
             var modelItems = this.model.get('_items');
             if (this.model.has('_items-url') && this.model.get('_items-url')!=='') {
                 this.loadExternalData(container, this.model.get('_items-url'));
@@ -204,6 +206,9 @@ define(function(require) {
         },
 
         moveTimeline: function (percentage) {
+            var timelineId2 = this.model.get('_id'); //pin points what block to put timeline
+            var customtimeline = '#time' + timelineId2;
+
             var range = myTimeline.getWindow();
             var interval = range.end - range.start;
             myTimeline.setWindow({
