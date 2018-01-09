@@ -636,6 +636,20 @@
     fill-opacity:0.3;
     stroke: none;
 }
+.group .itemstart.aria-label {
+    min-width: 150px;
+    top: -50px !important;
+}
+.group:nth-last-child(2) .itemstart.aria-label, .group:last-child .itemstart.aria-label {
+    left: -100px !important;
+}
+.group:first-child .itemstart.aria-label {
+    left: 0px !important;
+}
+.group .itemstart:before {
+    padding: 0px !important;
+}
+
 
 @media all and (max-width:@device-width-medium){
     .visTimeline-inner {padding-bottom: 70px !important;}
