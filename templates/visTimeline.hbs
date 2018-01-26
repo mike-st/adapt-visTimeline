@@ -1,14 +1,5 @@
 <div class="visTimeline-inner component-inner" style="margin:0px {{_options.margin}}" role="region" aria-label="{{_globals._components.visTimeline.ariaRegion}}">
     {{> component this}}
-    {{#each _items}}
-    	<script>
-    	window.setTimeout(function(){
-    		$('.timeline .itemset .foreground .group:nth-child({{id}}) .box' ).prepend( '<span class="aria-label prevent-default itemstart" tabindex="0" role="region">on {{start}}</span>' );
-    		$('.timeline .itemset .foreground .group:nth-child({{id}}) .point' ).prepend( '<span class="aria-label prevent-default itemstart" tabindex="0" role="region">on {{start}}</span>' );
-    		$('.timeline .itemset .foreground .group:nth-child({{id}}) .range' ).prepend( '<span class="aria-label prevent-default itemstart" tabindex="0" role="region">from {{start}} to {{end}}</span>' );
-    	}, 1011);
-		</script>
-	{{/each}}
     	<script>
 		    window.setTimeout(function(){
 				$('.timeline .itemset .foreground .item .content').each(function() {
