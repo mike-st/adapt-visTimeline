@@ -50,8 +50,16 @@ define(function(require) {
             var container = document.getElementById('time'+ timelineId); // code fails if jQuery is used here
             var modelItems = this.model.get('_items');
             if (this.model.has('_items-url') && this.model.get('_items-url')!=='') {
+                $('#time'+ timelineId).each(function() {
+                    $('#time'+ timelineId).prepend('<button href="#" class="visTimeline-controls visTimeline-control-left left'+ timelineId +'" role="button" aria-label="{{_globals._accessibility._ariaLabels.previous}}"><div class="icon icon-controls-left"></div></button>');
+                    $('#time'+ timelineId).prepend('<button href="#" class="visTimeline-controls visTimeline-control-right right'+ timelineId +'" role="button" aria-label="{{_globals._accessibility._ariaLabels.next}}"><div class="icon icon-controls-right"></div></button>');
+                });
                 this.loadExternalData(container, this.model.get('_items-url'));
             } else {
+                $('#time'+ timelineId).each(function() {
+                    $('#time'+ timelineId).prepend('<button href="#" class="visTimeline-controls visTimeline-control-left left'+ timelineId +'" role="button" aria-label="{{_globals._accessibility._ariaLabels.previous}}"><div class="icon icon-controls-left"></div></button>');
+                    $('#time'+ timelineId).prepend('<button href="#" class="visTimeline-controls visTimeline-control-right right'+ timelineId +'" role="button" aria-label="{{_globals._accessibility._ariaLabels.next}}"><div class="icon icon-controls-right"></div></button>');
+                });
                 this.loadModelData(container, modelItems);
             }
         },
