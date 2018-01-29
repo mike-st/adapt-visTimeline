@@ -7858,6 +7858,13 @@ BackgroundItem.prototype.redraw = function() {
     dom.box = document.createElement('div');
     // className is updated in redraw()
 
+    // create span for aria label
+    dom.content = document.createElement('SPAN'); //MIKE ADDED ARIA LABEL
+    dom.content.className = 'itemstart aria-label prevent-default';
+    dom.content.innerHTML = "from " + this.data.start + " to " + this.data.end; 
+    dom.content.tabIndex = '0';
+    dom.box.appendChild(dom.content);
+
     // contents box
     dom.content = document.createElement('div');
     dom.content.className = 'content';
@@ -8054,6 +8061,7 @@ BoxItem.prototype.isVisible = function(range) {
  */
 BoxItem.prototype.redraw = function() {
   var dom = this.dom;
+
   if (!dom) {
     // create DOM
     this.dom = {};
@@ -8061,6 +8069,13 @@ BoxItem.prototype.redraw = function() {
 
     // create main box
     dom.box = document.createElement('DIV');
+
+    // create span for aria label
+    dom.content = document.createElement('SPAN'); //MIKE ADDED ARIA LABEL
+    dom.content.className = 'itemstart aria-label prevent-default';
+    dom.content.innerHTML = "on " + this.data.start; 
+    dom.content.tabIndex = '0';
+    dom.box.appendChild(dom.content);
 
     // contents box (inside the background box). used for making margins
     dom.content = document.createElement('DIV');
@@ -8550,6 +8565,13 @@ PointItem.prototype.redraw = function() {
     dom.point = document.createElement('div');
     // className is updated in redraw()
 
+    // create span for aria label
+    dom.content = document.createElement('SPAN'); //MIKE ADDED ARIA LABEL
+    dom.content.className = 'itemstart aria-label prevent-default';
+    dom.content.innerHTML = "on " + this.data.start; 
+    dom.content.tabIndex = '0';
+    dom.point.appendChild(dom.content);
+
     // contents box, right from the dot
     dom.content = document.createElement('div');
     dom.content.className = 'content';
@@ -8733,6 +8755,13 @@ RangeItem.prototype.redraw = function() {
       // background box
     dom.box = document.createElement('div');
     // className is updated in redraw()
+
+    // create span for aria label
+    dom.content = document.createElement('SPAN'); //MIKE ADDED ARIA LABEL
+    dom.content.className = 'itemstart aria-label prevent-default';
+    dom.content.innerHTML = "from " + this.data.start + " to " + this.data.end; 
+    dom.content.tabIndex = '0';
+    dom.box.appendChild(dom.content);
 
     // contents box
     dom.content = document.createElement('div');
