@@ -17,7 +17,8 @@ define(function(require) {
     var VisTimeline = ComponentView.extend({
 
         events: {
-            'click .visTimeline-controls': 'onNavigationClicked'
+            'click .visTimeline-control-right': 'onRightNavClicked',
+            'click .visTimeline-control-left': 'onLeftNavClicked'
         },
 
         preRender: function() {
@@ -89,6 +90,7 @@ define(function(require) {
         validateDataItems: function(items) {
             //Vis.js documentation says these properties are not required:
             var optionalItems = ['classname', 'end', 'group', 'id', 'style', 'subgroup', 'title'];
+
             // check model items for any of vis.js's optional properties
             _.each(items, function (item) {
                 // delete empty properties before they are passed to vis.js to prevent errors (e.g., NaN).
@@ -100,7 +102,8 @@ define(function(require) {
                 // ensure optional items meet documented requirements
                 if ((item.type === 'range' || item.type === 'background') && (item.end === undefined || item.end === '')) {
                     item.type = 'box'; // 'box' is the default
-                }
+                };
+
             });
         },
 
@@ -196,25 +199,34 @@ define(function(require) {
             }
         },
 
-        onNavigationClicked: function(event) {
-            event.preventDefault();
-            if ($(event.currentTarget).hasClass('visTimeline-control-right')) {
-                this.moveTimeline(-0.2);
-            } else if ($(event.currentTarget).hasClass('visTimeline-control-left')) {
-                this.moveTimeline(0.2);
-            }
+        onRightNavClicked: function(event) {
+                event.preventDefault();
+                myparent = $(event.currentTarget).parent();
+                parentright = '#' + myparent.attr("id") + ' .visTimeline-controls';
+
+                if ($(parentright).hasClass('visTimeline-control-right')) {
+                    this.moveTimeline(-0.2);
+                }
+        },
+
+        onLeftNavClicked: function(event) {
+                event.preventDefault();
+                myparent = $(event.currentTarget).parent();
+                parentleft = '#' + myparent.attr("id") + ' .visTimeline-controls';
+
+                if ($(parentleft).hasClass('visTimeline-control-left')) {
+                    this.moveTimeline(0.2);
+                }
         },
 
         moveTimeline: function (percentage) {
-            var timelineId2 = this.model.get('_id'); //pin points what block to put timeline
-            var customtimeline = '#time' + timelineId2;
-
             var range = myTimeline.getWindow();
             var interval = range.end - range.start;
+
             myTimeline.setWindow({
                 start: range.start.valueOf() - interval * percentage,
                 end: range.end.valueOf() - interval * percentage
-            })
+            })     
         },
 
         // Used to check if the text should reset on revisit
