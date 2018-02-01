@@ -82,6 +82,10 @@ define(function(require) {
                     myTimeline = new vis.Timeline(container, items);
                     this.validateConfigOpts(data, myTimeline);
                     this.validateGroups(myTimeline);
+                    //REMOVES Blank times
+                    $(".itemstart").text(function () {
+                        return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "");
+                    });
                 },
                 error: function (err) {
                     console.log('Error', err);
@@ -111,6 +115,10 @@ define(function(require) {
                 if ((item.type === 'range' || item.type === 'background') && (item.end === undefined || item.end === '')) {
                     item.type = 'box'; // 'box' is the default
                 };
+                //REMOVES Blank times
+                $(".itemstart").text(function () {
+                    return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "");
+                });
 
             });
         },
@@ -210,9 +218,9 @@ define(function(require) {
         onRightNavClicked: function(event) {
                 event.preventDefault();
                 myparent = $(event.currentTarget).parent();
-                parentright = '#' + myparent.attr("id") + ' .visTimeline-controls';
+                var timelineId = this.model.get('_id'); //pin points what block to put timeline
 
-                if ($(parentright).hasClass('visTimeline-control-right')) {
+                if ($(".right"+ timelineId).hasClass('visTimeline-control-right')) {
                     this.moveTimeline(-0.2);
                 }
         },
@@ -220,9 +228,9 @@ define(function(require) {
         onLeftNavClicked: function(event) {
                 event.preventDefault();
                 myparent = $(event.currentTarget).parent();
-                parentleft = '#' + myparent.attr("id") + ' .visTimeline-controls';
+                var timelineId = this.model.get('_id'); //pin points what block to put timeline
 
-                if ($(parentleft).hasClass('visTimeline-control-left')) {
+                if ($(".left"+ timelineId).hasClass('visTimeline-control-left')) {
                     this.moveTimeline(0.2);
                 }
         },
