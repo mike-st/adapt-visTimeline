@@ -121,6 +121,7 @@ define(function(require) {
                 });
 
             });
+
         },
 
         validateConfigOpts: function(items, timeline) {
