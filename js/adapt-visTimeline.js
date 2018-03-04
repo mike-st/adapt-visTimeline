@@ -84,7 +84,7 @@ define(function(require) {
                     this.validateGroups(myTimeline);
                     //REMOVES Blank times
                     $(".itemstart").text(function () {
-                        return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "");
+                        return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "").replace(/00:00:00 GMT-0500 \(EST\)/g, "").replace(/00:00:00 GMT-0400 \(EDT\)/g, "");
                     });
                 },
                 error: function (err) {
@@ -117,7 +117,7 @@ define(function(require) {
                 };
                 //REMOVES Blank times
                 $(".itemstart").text(function () {
-                    return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "");
+                    return $(this).text().replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "").replace(/00:00:00 GMT-0500 \(EST\)/g, "").replace(/00:00:00 GMT-0400 \(EDT\)/g, "");
                 });
 
             });
