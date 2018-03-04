@@ -8289,7 +8289,7 @@ Item.prototype.select = function() {
   var popcontent = this.data.content; //MS ADDED POPUP
   var poptitle = this.data.title; //MS ADDED POPUP
   var popstart =  " on " + this.data.start + popend; //MS ADDED POPUP
-  var startcleaned = popstart.replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, ""); //MS ADDED POPUP
+  var startcleaned = popstart.replace(/00:00:00 GMT-0500 \(Eastern Standard Time\)/g, "").replace(/00:00:00 GMT-0400 \(Eastern Daylight Time\)/g, "").replace(/00:00:00 GMT-0500 \(EST\)/g, "").replace(/00:00:00 GMT-0400 \(EDT\)/g, ""); //MS ADDED POPUP
   var startcleaned2 = "<div style='display: block; font-size: 50%; font-style: italic; color: #ccc; margin-top: -20px;'>(" + startcleaned + ")</div>"; 
   require("coreJS/adapt").trigger("notify:popup",{title:startcleaned2+popcontent,body:poptitle}); //MS ADDED POPUP 
 
